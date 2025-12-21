@@ -23,9 +23,9 @@
         "erasableSyntaxOnly": true,
         "noFallthroughCasesInSwitch": true,
         "noUncheckedSideEffectImports": true,
-        "baseUrl": ".", // 기준 경로 설정
+        "baseUrl": ".",
         "paths": {
-            "@/*": ["./src/*"] // 경로 별칭 설정
+            "@/*": ["./src/*"]
         }
     },
     "include": ["src"]
