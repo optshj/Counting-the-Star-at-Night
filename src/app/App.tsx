@@ -21,11 +21,10 @@ export default function App() {
 function Layout({ children }: { children: React.ReactNode }) {
     return (
         <div className="flex min-h-screen flex-col">
-            {/* <Header /> */}
+            <Header />
             <StarTrails />
-
-            <main className="grow pt-16">{children}</main>
-            {/* <Footer /> */}
+            <main className="pt-16">{children}</main>
+            <Footer />
         </div>
     );
 }

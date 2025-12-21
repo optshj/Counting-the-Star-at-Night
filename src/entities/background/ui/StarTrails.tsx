@@ -128,5 +128,5 @@ export const StarTrails = () => {
         };
     }, []);
 
-    return <canvas ref={canvasRef} className="fixed top-0 left-0 -z-10 h-full w-full bg-[#02020a]" style={{ touchAction: 'none' }} />;
+    return <canvas aria-label="background" ref={canvasRef} className="fixed top-0 left-0 -z-10 h-full w-full bg-[#02020a]" style={{ touchAction: 'none' }} />;
 };
