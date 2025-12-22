@@ -3,7 +3,7 @@ interface MoonPhaseProps {
     size?: number;
 }
 
-const MoonPhase = ({ phase, size = 24 }: MoonPhaseProps) => {
+export const MoonIcon = ({ phase, size = 24 }: MoonPhaseProps) => {
     // 1. phase를 8단계로 반올림 (0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1)
     // 0.125 간격으로 나누고 반올림한 뒤 다시 곱함
     const steppedPhase = Math.round(phase * 8) / 8;
@@ -33,5 +33,3 @@ const MoonPhase = ({ phase, size = 24 }: MoonPhaseProps) => {
         </div>
     );
 };
-
-export default MoonPhase;
