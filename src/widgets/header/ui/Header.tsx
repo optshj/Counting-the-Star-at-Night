@@ -29,7 +29,7 @@ export function Header() {
                             <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-blue-400 transition-all group-hover:w-full" />
                         </Link>
                         <Link to="/place" className="group relative">
-                            관측소
+                            명소 추천
                             <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-blue-400 transition-all group-hover:w-full" />
                         </Link>
                     </nav>

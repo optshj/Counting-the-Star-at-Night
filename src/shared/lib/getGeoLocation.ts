@@ -1,7 +1,7 @@
 // 서울 시청 기준 좌표
-const DEFAULT_COORDS = { lat: 37.5665, lon: 126.978 };
+const DEFAULT_COORDS = { lat: 37.5665, lng: 126.978 };
 
-export const getGeoLocation = (): Promise<{ lat: number; lon: number }> => {
+export const getGeoLocation = (): Promise<{ lat: number; lng: number }> => {
     return new Promise((resolve) => {
         if (!navigator.geolocation) {
             resolve(DEFAULT_COORDS);
@@ -12,7 +12,7 @@ export const getGeoLocation = (): Promise<{ lat: number; lon: number }> => {
             (position) => {
                 resolve({
                     lat: position.coords.latitude,
-                    lon: position.coords.longitude
+                    lng: position.coords.longitude
                 });
             },
             () => {
