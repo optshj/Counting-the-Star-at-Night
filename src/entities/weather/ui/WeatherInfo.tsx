@@ -1,5 +1,6 @@
-import { Cloud, Moon, MapPin, Eye } from 'lucide-react';
+import { Cloud, MapPin, Eye } from 'lucide-react';
 import type { Weather } from '@/shared/types/weather';
+import MoonComponent from './MoonIcon';
 
 export const WeatherInfo = ({ weatherData }: { weatherData: Weather }) => {
     return (
@@ -9,7 +10,7 @@ export const WeatherInfo = ({ weatherData }: { weatherData: Weather }) => {
             <div className="grid grid-cols-1 gap-4">
                 <WeatherItem icon={<Cloud />} label="운량" value={`${weatherData.clouds.all}%`} color="text-slate-400" />
                 <WeatherItem icon={<Eye />} label="가시거리" value={`${(weatherData.visibility / 1000).toFixed(1)}km`} color="text-blue-400" />
-                <WeatherItem icon={<Moon />} label="달 위상" value={weatherData.moonPhase} color="text-yellow-400" />
+                <WeatherItem icon={<MoonComponent phase={weatherData.moon.phaseIndex} />} label="달 위상" value={weatherData.moon.moonPhase} color="text-yellow-400" />
                 <WeatherItem icon={<MapPin />} label="기압" value={`${weatherData.main.pressure} hPa`} color="text-green-400" />
             </div>
         </div>

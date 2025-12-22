@@ -11,7 +11,7 @@ export function useWeather() {
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
-    const moonPhase = getMoonPhase();
+    const moon = getMoonPhase();
 
     useEffect(() => {
         const fetchWeather = async () => {
@@ -28,7 +28,7 @@ export function useWeather() {
                 const result = await response.json();
                 setData({
                     ...result,
-                    moonPhase
+                    moon
                 });
                 setError(null);
             } catch (err: any) {
@@ -39,7 +39,7 @@ export function useWeather() {
         };
 
         fetchWeather();
-    }, [moonPhase]);
+    }, []);
 
     return { data, loading, error };
 }

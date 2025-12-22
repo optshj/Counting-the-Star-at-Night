@@ -13,5 +13,8 @@ export type Weather = {
         speed: number;
     };
     name: string;
-    moonPhase: MoonPhase;
+    moon: {
+        moonPhase: MoonPhase;
+        phaseIndex: number;
+    };
 };
