@@ -17,9 +17,9 @@ export function useWeather() {
         const fetchWeather = async () => {
             try {
                 setLoading(true);
-                const { lat, lon } = await getGeoLocation();
+                const { lat, lng } = await getGeoLocation();
 
-                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`);
+                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=metric`);
 
                 if (!response.ok) {
                     throw new Error('날씨 데이터를 가져오는데 실패했습니다.');
