@@ -1,12 +1,7 @@
-import type { Place } from '@/shared/types/place';
 import { placeData } from '@/shared/data/place';
 import { Star } from 'lucide-react';
 
 export const PlaceList = ({ setMapCenter }: { setMapCenter: (center: { lat: number; lng: number }) => void }) => {
-    const handlePlaceClick = (place: Place) => {
-        setMapCenter({ lat: place.lat, lng: place.lng });
-    };
-
     return (
         <div className="background-glass flex w-100 flex-col overflow-hidden rounded-2xl">
             <div className="border-b border-zinc-800 p-5">
@@ -18,7 +13,8 @@ export const PlaceList = ({ setMapCenter }: { setMapCenter: (center: { lat: numb
                 {placeData.map((place) => (
                     <div
                         key={place.id}
-                        onClick={() => handlePlaceClick(place)}
+                        aria-label={`장소 이름: ${place.name}, 별점: ${place.rating}`}
+                        onClick={() => setMapCenter({ lat: place.lat, lng: place.lng })}
                         className="background-glass group cursor-pointer rounded-xl border p-4 transition-all hover:border-purple-500/50 hover:bg-zinc-800"
                     >
                         <h3 className="text-lg font-semibold text-white transition-colors group-hover:text-purple-300">{place.name}</h3>
