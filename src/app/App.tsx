@@ -1,6 +1,8 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
+
 import { HomePage } from '@/pages/home';
-import { PlacePage } from '../pages/place';
+import { PlacePage } from '@/pages/place';
 import { Header } from '@/widgets/header';
 import { Footer } from '@/widgets/footer';
 import { StarTrails } from '@/entities/background';
@@ -9,12 +11,37 @@ export default function App() {
     return (
         <BrowserRouter>
             <Layout>
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/place" element={<PlacePage />} />
-                </Routes>
+                <AnimatedRoutes />
             </Layout>
         </BrowserRouter>
+    );
+}
+
+function AnimatedRoutes() {
+    const location = useLocation();
+    const [displayLocation, setDisplayLocation] = useState(location);
+    const [isExiting, setIsExiting] = useState(false);
+
+    useEffect(() => {
+        if (location.pathname !== displayLocation.pathname) {
+            setIsExiting(true);
+        }
+    }, [location, displayLocation]);
+
+    const handleAnimationEnd = () => {
+        if (isExiting) {
+            setIsExiting(false);
+            setDisplayLocation(location);
+        }
+    };
+
+    return (
+        <div className={isExiting ? 'animate-fade-out' : 'animate-fade-in'} onAnimationEnd={handleAnimationEnd}>
+            <Routes location={displayLocation}>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/place" element={<PlacePage />} />
+            </Routes>
+        </div>
     );
 }
 

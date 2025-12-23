@@ -30,3 +30,28 @@ button {
 ::-webkit-scrollbar-thumb:hover {
     background: #3f3f46;
 }
+
+@theme {
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    @keyframes fade-out {
+        from {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        to {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+    }
+    --animate-fade-in: fade-in 0.4s ease-out forwards;
+    --animate-fade-out: fade-out 0.4s ease-in forwards;
+}
