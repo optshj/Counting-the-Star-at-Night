@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 
-import { PlaceList, PlaceMap } from '@/entities/place';
+import { PlaceMap } from '@/entities/place';
 import { getGeoLocation } from '@/shared/lib/getGeoLocation';
+import { PlaceList } from '@/features/place';
 
 export const PlacePage = () => {
     const [myLocation, setMyLocation] = useState<{ lat: number; lng: number }>({ lat: 37.5665, lng: 126.978 });
